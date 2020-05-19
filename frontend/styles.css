@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -32,14 +32,14 @@ div.title {
     width: 30%;
     height: 100px;
     align-content: center;
-    box-shadow:1px 1px 8px #444;
+    box-shadow: 1px 1px 8px #444;
 }
 
 .title h1 {
-align-self: center;
-font-size: 60px;
-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-font-weight: normal;
+    align-self: center;
+    font-size: 60px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: normal;
 }
 
 .title h1 span {
@@ -50,17 +50,39 @@ font-weight: normal;
     margin: 30px auto;
 }
 
+.form__container {
+    display: flex;
+}
+
+.low__priority {
+    border: green solid 2px;
+}
+
+.medium__priority {
+    border: orange solid 2px;
+
+}
+
+.high__priority {
+    border: rgb(241, 71, 71) solid 2px;
+
+}
+
 .search input {
     width: 600px;
     height: 40px;
 }
 
 .search button {
-height: 40px;
-width: 100px;
-text-transform: uppercase;
-background-color: #6D61FF;
-color: white;
+    height: 40px;
+    width: 100px;
+    text-transform: uppercase;
+    background-color: #6D61FF;
+    color: white;
+}
+
+.priorities__container input {
+    width: 100px;
 }
 
 .tasks {
@@ -88,6 +110,6 @@ li {
     padding-left: 10px;
     line-height: 40px;
     /* border: gray solid 1px; */
-    box-shadow:1px 1px 8px #444;
+    box-shadow: 1px 1px 8px #444;
     margin-bottom: 10px;
 }
