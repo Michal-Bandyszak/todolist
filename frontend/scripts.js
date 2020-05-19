@@ -9,7 +9,7 @@ const deleteData = (data) => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then(dawaj);
+  }).then(getData);
 };
 
 const showData = (data) => {
@@ -28,12 +28,14 @@ const showData = (data) => {
   });
 };
 
-const dawaj = () => {
+const getData = () => {
   fetch("/todos")
     .then((res) => res.json())
     .then(showData)
     .catch((error) => console.error(error));
 };
+
+
 document.forms.newTask.addEventListener("submit", (e) => {
   e.preventDefault();
   fetch("/todo", {
