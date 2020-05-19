@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="stylesheet" href="/styles.css" type="text/css" />
-	</head>
-	<body>
-		<section class="header">
-			<header></header>
-			<div class="title"><h1>todo<span>list</span></h1></div>
-		</section>
 
-		<section class="search">
-			<form id="newTask">
-				<input name="task" type="text" class = "input__task"  />
-				<!-- <div class="priorities__container">
-					<input type="checkbox" name="priority" value="low" /><label for="low"
-						>low</label
-					>
-					<input type="checkbox" name="priority" value="medium" /><label
-						for="medium"
-						>medium</label
-					>
-					<input type="checkbox" name="priority" value="high" /><label
-						for="high"
-						>high</label
-					>
-				</div> -->
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="/styles.css" type="text/css" />
+</head>
+
+<body>
+	<section class="header">
+		<header></header>
+		<div class="title">
+			<h1>todo<span>list</span></h1>
+		</div>
+	</section>
+
+	<section class="search">
+		<form id="newTask">
+			<div class="form__container">
+				<input name="task" type="text" class="input__task" />
+				<div class="priorities__container">
+
+					<select name="priority" id="priorities" placeholder='Priority'>
+						<option value="" disabled selected>priorities</option>
+						<option name='low' value="low">low</option>
+						<option name='medium' value="medium">medium</option>
+						<option name='high' value="high">high</option>
+						</datalist>
+					</select>
+				</div>
 				<button class="btn__add">add task</button>
-			</form>
-		</section>
-		<section class="tasks"><ul class="tasks__list"></ul></section>
-		<script src="/scripts.js"></script>
-	</body>
+			</div>
+		</form>
+	</section>
+	<section class="tasks">
+		<ul class="tasks__list"></ul>
+	</section>
+	<script src="/scripts.js"></script>
+</body>
+
 </html>
