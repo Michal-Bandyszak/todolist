@@ -1,6 +1,17 @@
 const btnAdd = document.querySelector(".btn__add");
-const element = document.querySelector(".tasks__list");
-const input_task = document.querySelector(".input__task");
+const tasksList = document.querySelector(".tasks__list");
+const inputTask = document.querySelector(".input__task");
+
+const stringToHTML = (str) => {
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(str, 'text/html');
+		console.log(doc.body.)
+		return doc.body;
+	}
+
+const handleError = (error) => {
+	console.error(error)
+};
 
 const deleteData = (data) => {
   console.log(data);
@@ -9,47 +20,55 @@ const deleteData = (data) => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then(getData);
+  }).then(getData).catch(handleError)
 };
 
+const postData = (body) => {
+	fetch("/todo", {
+		method: "POST",
+		headers: {
+		  "Content-Type": "application/json",
+		},
+		body: JSON.stringify(body),
+	  })
+		.then((res) => res.json())
+		.then(showData)
+		.catch(handleError)
+};
+
+const getData = () => {
+  fetch("/todos")
+	.then((res) => res.json())
+	.then(showData)
+	.catch(handleError)
+};
+
+
 const showData = (data) => {
-  element.innerHTML = "";
-  data.forEach((data) => {
-    const li = document.createElement("li");
-    const btnDel = document.createElement("button");
-    li.innerHTML = data.task;
-    btnDel.innerText = "X";
-    element.appendChild(li).id = data.id;
-    element.appendChild(btnDel).id = data.id;
-    input_task.value = "";
+  tasksList.innerHTML = "";
+  inputTask.value = ""
+  data.forEach(({task, id }) => {
+	const element = stringToHTML(`
+	<li>
+		<span>${task}</span>
+		<button>X</button>
+	</li>
+`);
+    tasksList.appendChild(element.body).id = id;
+    // tasksList.appendChild(element.btnDel).id = data.id;
     btnDel.addEventListener("click", () => {
       deleteData(btnDel.id);
     });
   });
 };
 
-const getData = () => {
-  fetch("/todos")
-    .then((res) => res.json())
-    .then(showData)
-    .catch((error) => console.error(error));
-};
 
 
 document.forms.newTask.addEventListener("submit", (e) => {
-  e.preventDefault();
-  fetch("/todo", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(
-      Object.fromEntries(new FormData(document.forms.newTask))
-    ),
-  })
-    .then((res) => res.json())
-    .then(showData)
-    .catch((error) => {
-      console.error(error);
-    });
+	e.preventDefault();
+	const body = Object.fromEntries(new FormData(e.target));
+	const request = postData(body);
+	request.then(showData);
 });
+
+ getData().then(showData)
