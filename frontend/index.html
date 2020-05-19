@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles.css" type="text/css" />
-  </head>
-  <body>
-    <section class="header">
-      <header>
-      </header>
-      <div class='title'>todo<span>list</span></div>
-    </section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="/styles.css" type="text/css" />
+	</head>
+	<body>
+		<section class="header">
+			<header></header>
+			<div class="title"><h1>todo<span>list</span></h1></div>
+		</section>
 
-    <section class="search">
-      <div class="input">
-        <input type="text">
-<<<<<<< HEAD
-        <input type="checkbox" name="low" id="low" value="low"><label for="low">low</label> 
-        <input type="checkbox" name="medium" id="medium" value="medium"><label for="medium">medium</label> 
-        <input type="checkbox" name="high" id="high" value="high"><label for="high">high</label> 
-=======
-        <input type="checkbox" id="priority_low" name="low" value="low">
-        <label>low</label>
-        <input type="checkbox" id="priority_medium" name="medium" value="medium">
-        <label>medium</label>
-        <input type="checkbox" id="priority_high" name="high" value="high">
-        <label>high</label>
->>>>>>> 51551024beb3ad17274426014b7c6eb3e766cbdc
-        <button class="btn__add">add</button>
-      </div>
-    </section>
-    <section class="tasks"></section>
-
-
-
-    <script src="/scripts.js"></script>
-  </body>
+		<section class="search">
+			<form id="newTask">
+				<input name="task" type="text" class = "input__task"  />
+				<!-- <div class="priorities__container">
+					<input type="checkbox" name="priority" value="low" /><label for="low"
+						>low</label
+					>
+					<input type="checkbox" name="priority" value="medium" /><label
+						for="medium"
+						>medium</label
+					>
+					<input type="checkbox" name="priority" value="high" /><label
+						for="high"
+						>high</label
+					>
+				</div> -->
+				<button class="btn__add">add task</button>
+			</form>
+		</section>
+		<section class="tasks"><ul class="tasks__list"></ul></section>
+		<script src="/scripts.js"></script>
+	</body>
 </html>
