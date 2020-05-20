@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/styles.css" type="text/css" />
-  </head>
-  <body>
-    <section class="header">
-      <header></header>
-      <div class="title">
-        <h1>todo<span>list</span></h1>
-      </div>
+</head>
+<body>
+    <section class="header__container">
+        <header></header>
+        <div class="header__title">
+            <h1>todo<span>list</span></h1>
+        </div>
     </section>
-
-    <section class="search">
-      <div class="input__container">
+    <section class="formTask__container">
         <form id="newTask">
-          <input type="text" name="task"  class="input__task"/>
-          <button class="btn__add">add</button>
+            <div class="formTask">
+                <input name="task" type="text" class="formTask__input" placeholder="What do you want to do?" />
+                <div class="formTask__priorities">
+                    <select name="priority" id="priorities">
+                        <option value="" disabled selected>priorities</option>
+                        <option name="none" value="none">none</option>
+                        <option name="low" value="low">low</option>
+                        <option name="medium" value="medium">medium</option>
+                        <option name="high" value="high">high</option>
+                    </select>
+                </div>
+                <button class="formTask__btn">add task</button>
+            </div>
         </form>
-      </div>
     </section>
-    <section class="tasks"><ul class="tasks__list"></ul></section>
-
+    <section class="tasksList">
+        <ul class="tasksList__list"></ul>
+    </section>
     <script src="/scripts.js"></script>
-  </body>
+</body>
 </html>
