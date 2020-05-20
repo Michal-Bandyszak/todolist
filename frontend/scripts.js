@@ -36,7 +36,7 @@ const taskComponent = (({ task, priority, id, onDelete }) => {
     const element = getHTMLElement(`
         <li>
             <span>${task}</span>
-            <button class='delete_btn'>X</button>
+            <button class='delete_btn'><i class="fas fa-trash-alt"></i></button>
         </li>
     `);
     const deleteButton = element.querySelector("button");
